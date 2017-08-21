@@ -31,7 +31,7 @@
                         "E_ID": document.getElementById("E_ID").value,
                         "ID_Number": document.getElementById("ID_Number").value,
                         "E_Name": document.getElementById("E_Name").value,                        
-                        "E_Salary": document.getElementById("E_Salary").value;
+                        "E_Salary": document.getElementById("E_Salary").value
                     },
                     function (data) {
                         document.write("--------------------------");
@@ -80,13 +80,13 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <form action="index.html" method="get">
+        
           員工編號: <input type="text" id="E_ID"><br><br>
           員工姓名: <input type="text" id="E_Name"><br><br>
           身份證字號: <input type="text" id="ID_Number"><br><br>
           薪水: <input type="text" id="E_Salary"><br><br><br><br>
-          <input type="submit" value="送出" onclick="SendScore()">
-        </form>
+          <input type="button" value="送出" onclick="SendScore()">
+        
       </div>
     </div> <!-- /container -->
 
