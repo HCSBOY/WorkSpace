@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        function processFormData() {
+            var opt = document.getElementById('option_1');
+            var office = document.getElementById('office_1');
+            var email_element = document.getElementById('email');
+            var email = email_element.value;
+            alert('你的姓名是'+name+'\n電子郵件是'+email);
+        }
+    </script>
+</head>
+<body>
+    <form name='form' id='form'>
+        <thead valign="top">
+            <tr>
+                <th>項次</th>
+                <th>辦公室</th>
+                <th>聯絡人</th>
+                <th>電話</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="option_1" value="1"></td>
+                <td><input type="text" name="office_1" value=""></"></td>
+                <td><input type="text" name="telephone_1" value="("></td>
+                <td><input type="text" name="addr_1" value=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="option_1" value="1"></td>
+                <td><input type="text" name="office_1" value=""></"></td>
+                <td><input type="text" name="telephone_1" value="("></td>
+                <td><input type="text" name="addr_1" value=""></td>
+            </tr>
+        </tbody>
+        <input type="submit" name="display" value="display">
+    </form>
+
+    <table id="testTable" summary="Code page support in different versions of MS Windows." rules="groups" frame="hsides" border="2">
+        <caption></caption>
+        <colgroup align="center"></colgroup>
+        <colgroup align="left"></colgroup>
+        <colgroup align="center"></colgroup>
+        <colgroup align="center"></colgroup>
+        <thead valign="top">
+            <tr>
+                <th>項次</th>
+                <th>辦公室</th>
+                <th>聯絡人</th>
+                <th>電話</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="option_1" value="1"></td>
+                <td><input type="text" name="office_1" value=""></"></td>
+                <td><input type="text" name="telephone_1" value="("></td>
+                <td><input type="text" name="addr_1" value=""></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="option_1" value="1"></td>
+                <td><input type="text" name="office_1" value=""></"></td>
+                <td><input type="text" name="telephone_1" value="("></td>
+                <td><input type="text" name="addr_1" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

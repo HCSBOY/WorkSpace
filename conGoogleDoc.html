@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>conGoogleDoc</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function SendScore(){
+            $.get("https://script.google.com/macros/s/AKfycbzzChKlZ14DSMtxj187xHTR9ThMBgjMfMDHgvBVL7NMo6rJWz7-/exec", {
+                        "E_ID": document.getElementById("E_IDInput").value,
+                        "E_Name": document.getElementById("E_NameInput").value,
+                        "ID_Number": document.getElementById("ID_NumberInput").value,
+                        "E_Salary": document.getElementById("E_SalaryInput").value;
+                    },
+                    function (data) {
+                        document.write("--------------------------");
+                        document.write("Result = "+data);
+                        document.write("--------------------------");
+                    });
+        }
+    </script>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js"></script>	
+</body>
+</html>

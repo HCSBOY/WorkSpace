@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        function fnExcelReport() {
+            var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+            var textRange; var j=0;
+            tab = document.getElementById('headerTable'); // id of table
+            for(j = 0 ; j < tab.rows.length ; j++) {     
+                tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        //tab_text=tab_text+"</tr>";
+            }
+
+            tab_text=tab_text+"</table>";
+            tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+            tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+            tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE "); 
+
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)){      // If Internet Explorer
+                txtArea1.document.open("txt/html","replace");
+                txtArea1.document.write(tab_text);
+                txtArea1.document.close();
+                txtArea1.focus(); 
+                sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+            }else             //other browser not tested on IE 11
+                sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+            return (sa);
+        }  
+         //https://stackoverflow.com/questions/22317951/export-html-table-data-to-excel-using-javascript-jquery-is-not-working-properl  
+    </script>
+    <script type="text/javascript">
+        var tableToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+        , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+        return function(table, name) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+            window.location.href = uri + base64(format(template, ctx))
+            }
+        })();
+
+        (function(){
+            var input = document.querySelector('#input');
+            var span = document.querySelector('#preview');
+            input.addEventListener('change', function(e){
+            handFile(e.target.files[0]);
+            });
+ 
+            function handFile(file){
+                console.log('hand');
+                var reader = new FileReader();
+                reader.onload = function(e){
+                span.innerText = e.target.result;
+                };
+                reader.readAsText(file);
+            }
+        })();
+
+    </script>
+</head>
+<body>
+    <input type="file" id="input">
+    <span id="preview"></span>
+
+    <h1>tableToExcel Demo</h1>
+    <input type="button" onclick="tableToExcel('testTable', 'W3C Example Table')" value="Export to Excel">
+
+    <table id="testTable" summary="Code page support in different versions of MS Windows." rules="groups" frame="hsides" border="2">
+        <caption></caption>
+        <colgroup align="center"></colgroup>
+        <colgroup align="left"></colgroup>
+        <colgroup align="center"></colgroup>
+        <colgroup align="center"></colgroup>
+        <thead valign="top">
+            <tr>
+                <th>項次</th>
+                <th>辦公室</th>
+                <th>聯絡人</th>
+                <th>電話</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
