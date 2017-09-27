@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<style>
+	div {
+		border: solid 2px #336699;
+		margin: 10px;
+		padding: 5px;
+		border-radius: 5px;
+		vertical-align: top;
+		text-align: center;
+		display: inline-block;
+	}
+	#container {
+		background: #88BBFF;
+		width: 480px;
+	}
+	#panel {
+		background: #99CCFF;
+		border: dotted 1px #4477AA;
+		width: 90%;
+		margin: 0px;
+		text-align: left;
+		font-size: 12px;
+	}
+</style>
+<script>
+	try {
+		var db = openDatabase(
+			'account',
+			'3.10.0',
+			'Member Account Information',
+			10*1024*1024,
+			function(db) {
+				db.changeVersion(
+					'',
+					'1.0',
+					function(t) {
+						t.executeSql("CREATE TABLE IF NOT EXISTS member (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50) NOT NULL DEFAULT '', password VARCHAR(50) NOT NULL DEFAULT '')");
+					},
+					function(e) {
+						alert(e.message);
+					}
+				);
+			}
+		);
+	} catch(e) {
+		alert('Exception: '+e);
+	}
+</script>
+</head>
+<body>
+<input value="Create Table" id="createt" type="button"><br>
+<input value="Drop Table" id="dropt" type="button"><br>
+<input value="Insert Testing Data" id="set" type="button"><br>
+<input value="Get Testing Data" id="get" type="button"><br>
+<div id="panel"></div>
+</body>
+</html>
+<script>
+try {
+	document.getElementById('set').addEventListener(
+		'click',
+		function(e) {
+			db.transaction(
+				function(t) {
+					try {
+						t.executeSql("INSERT OR REPLACE INTO member (name, password) VALUES ('a84718273','!a84718273')");
+						t.executeSql("INSERT OR REPLACE INTO member (name, password) VALUES ('a84718274','!a84718274')");
+						t.executeSql("INSERT OR REPLACE INTO member (name, password) VALUES ('a84718275','!a84718275')");
+						t.executeSql("INSERT OR REPLACE INTO member (name, password) VALUES ('a84718276','!a84718276')");
+					} catch(e) {
+						document.getElementById('panel').innerHTML += '<li>' + e + '</li>';
+					}
+				},
+				function(e) {
+					document.getElementById('panel').innerHTML += '<li>' +e.message + '</li>';
+				}
+			);
+		},
+		false
+	);
+	document.getElementById('get').addEventListener(
+		'click',
+		function(e) {
+			db.readTransaction(
+				function(t) {
+					t.executeSql(
+						"SELECT * FROM member",
+						[],
+						function(t, r) {
+							var str = '<ul>';
+							for(var i=0,j=r.rows.length; i<j; i++) {
+								str += '<li><ol>';
+								for(var o in r.rows.item(i)) {
+									str += '<li>';
+									str += o + ' : ' + r.rows.item(i)[o];
+									str += '</li>';
+								}
+								str += '</ol></li>';
+							}
+							str += '</ul>';
+							document.getElementById('panel').innerHTML += str;
+						}
+					);
+				},
+				function(e) {
+					document.getElementById('panel').innerHTML += '<li>' +e.message + '</li>';
+					return false;
+				}
+			);
+		},
+		false
+	);
+	document.getElementById('dropt').addEventListener(
+		'click',
+		function() {
+			db.transaction(
+				function(t) {
+					t.executeSql("DROP TABLE IF EXISTS member");
+				},
+				function(e) {
+					document.getElementById('panel').innerHTML += '<li>' + e.message + '</li>';
+				}
+			);
+		},
+		false
+	);
+	document.getElementById('createt').addEventListener(
+		'click',
+		function() {
+			db.transaction(
+				function(t) {
+					t.executeSql("CREATE TABLE IF NOT EXISTS member (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50) NOT NULL DEFAULT '', password VARCHAR(50) NOT NULL DEFAULT '')");
+				},
+				function(e) {
+					document.getElementById('panel').innerHTML += '<li>' + e.message + '</li>';
+				}
+			);
+		},
+		false
+	);
+} catch(e) {
+	document.getElementById('panel').innerHTML += '<li>' + e + '</li>';
+}
+</script>

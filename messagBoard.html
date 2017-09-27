@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
   <head>
-    <meta charset="big5">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -32,13 +32,20 @@
         var myTable = document.createElement("table");
         myTable.className="myTable";
         var myTitleTr = myTable.insertRow(-1);
+        var myDepartTr = myTable.insertRow(-1);
         myTitleTr.className="myTitleTr";
+        myDepartTr.className="myDepartTr";
         var myTitleTd = myTitleTr.insertCell(-1);
+        var myDepartTd = myDepartTr.insertCell(-1);
         myTitleTd.innerHTML = document.getElementById("myTitle").value;
+        myTitleTd.innerHTML = document.getElementById("myDepart").value;
+        myTitleTd.innerHTML = document.getElementById("myPhone").value;
         var myContentTr = myTable.insertRow(-1);
         var myContentTd = myContentTr.insertCell(-1);
         myContentTd.innerHTML = document.getElementById("myContent").value;   
         						document.getElementById("myTitle").value = "";
+        						document.getElementById("myDepart").value = "";
+        						document.getElementById("myPhone").value = "";
         						document.getElementById("myContent").value = "";
         myMessage.appendChild(mybr);
         myMessage.appendChild(myTable);
@@ -64,7 +71,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="#"></a></li>
+              <li><a href="messagBoard.html">Message Board</a></li>
               <li><a href="#"></a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -75,25 +82,31 @@
       <div class="jumbotron">
 		<form class="form-horizontal">
 			<div class="form-group">
-    			<label for="myTitle" class="col-sm-1 control-label">©m¶W: </label>
+    			<label for="myTitle" class="col-sm-1 control-label">ÂßìÂêç:</label>
     			<div class="col-sm-10">
-      				<input type="text" class="form-control" id="myTitle" placeholder="Ω–øÈ§J©m¶W">
+      				<input type="text" class="form-control" id="myTitle" placeholder="ÂßìÂêç">
      			</div>
   			</div>
   			<div class="form-group">
-  				<label for="myDepart" class="col-sm-1 control-label">≥°™˘: </label>
+  				<label for="myDepart" class="col-sm-1 control-label">ÈÉ®ÈñÄ:</label>
     			<div class="col-sm-10">
-      				<input type="text" class="form-control" id="myDepart" placeholder="Ω–øÈ§J≥°™˘">
+      				<input type="text" class="form-control" id="myDepart" placeholder="ÈÉ®ÈñÄ">
      			</div>
   			</div>
   			<div class="form-group">
-  				<label for="myContent" class="col-sm-1 control-label">Ød®•: </label>
+  				<label for="myPhone" class="col-sm-1 control-label">ÈõªË©±:</label>
     			<div class="col-sm-10">
-      				<textarea class="form-control" rows="5" id="myContent" placeholder="ºg§UØd®•"></textarea>
+      				<input type="text" class="form-control" id="myPhone" placeholder="ÈõªË©±">
      			</div>
   			</div>
   			<div class="form-group">
-  				<input name="button" type="button" onClick="mySubmit();" value="Ød®•" />
+  				<label for="myContent" class="col-sm-1 control-label">ÁïôË®Ä:</label>
+    			<div class="col-sm-10">
+      				<textarea class="form-control" rows="5" id="myContent" placeholder="ÁïôË®Ä"></textarea>
+     			</div>
+  			</div>
+  			<div class="form-group">
+  				<input type="button" onClick="mySubmit();" value="ÈÄÅÂá∫" />
   			</div>
   			<div id="myMessage"></div> 
 		</form>

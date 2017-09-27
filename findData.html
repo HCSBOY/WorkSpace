@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="big5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/Content/AssetsBS3/img/favicon.ico">
+
+    <title>Find Data</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/Content/AssetsBS3/examples/navbar.css" rel="stylesheet">
+
+    <script src="/Scripts/AssetsBS3/ie-emulation-modes-warning.js"></script>
+
+    <script type="text/javascript">
+        function Search(){
+            $.get("https://script.google.com/macros/s/AKfycbyHWSPzKSdpC1IR6uvn2VeFIoc1r9Qy33yL7BpypDr6JtecvZk7/exec", {
+                        "E_ID": document.getElementById("E_ID").value
+                    },
+                    function (data) {
+                    	document.getElementById("DisplayData").innerHTML=data;
+                    });
+        }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WorkSpace</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Function 1</a></li>
+              <li><a href="#">Function 2</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/bs3/Examples/navbar">Login<span class="sr-only">(current)</span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron" id='DisplayData'>
+        NO: <input type="text" id="E_ID"><br><br>
+    	<input type="button" value="查詢" onclick="Search()">
+        
+      </div>
+    </div> 
+	
+    
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Scripts/AssetsBS3/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
