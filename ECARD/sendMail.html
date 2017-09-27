@@ -1,0 +1,33 @@
+
+<HTML>
+<HEAD>
+<meta http-equiv="content-type" content="text/html; charset=big5">
+<TITLE>JavaScript 寄信</TITLE>
+<link rel=stylesheet type="text/css" href="../../css.css">
+<!--運用JavaScript自動產生寄信表單，就是下面這一段程式碼-->
+<script language="JavaScript" type="text/JavaScript">
+<!--
+var name="TEST";
+var mean="這裡寫下您的建議：";
+var mail="hans_hou@nittsu.com.tw";
+var subject="建議事項表單";
+document.write('<FORM METHOD="POST" ACTION="mailto:');
+document.write(mail);
+document.write('?SUBJECT=');
+document.write(subject)
+document.write('enctype=\"text/plain\">');
+document.write('標題： '+name+'');
+document.write('<br>');
+document.write('姓名：<INPUT type=text NAME="寄信者大名" size="20" value="">');
+document.write('<br>');
+document.write('<TEXTAREA NAME="建議事項" ROWS=6 COLS=40 wrap=physical>'+mean+' </TEXTAREA>');
+document.write('<INPUT TYPE=submit VALUE="確定寄出" class="button" onFocus="this.blur()">');
+document.write('<INPUT TYPE="button" VALUE="測試完畢 " onClick="window.close()" class="button" onFocus="this.blur()">');
+document.write('</FORM>');
+//-->
+</script>
+<!--運用JavaScript自動產生寄信表單，就是上面這一段程式碼-->
+</HEAD>
+<BODY BGColor="#ffffff"  background='../../pics/bg1.gif'  onload=document.a.login.focus();>
+</BODY>  
+</HTML> 
