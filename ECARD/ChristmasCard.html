@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Christmas Card</title>
+<script type="text/javascript">
+	// https://codepen.io/otsukatomoya/pen/gbDxF/
+// https://codepen.io/otsukatomoya/pen/gbDxF/
+
+var w = window.innerWidth,
+    h = window.innerHeight,
+    canvas = document.getElementById('snow'),
+    ctx = canvas.getContext('2d'),
+    rate = 50,
+    arc = 500,
+    time,
+    count,
+    size = 2,
+    speed = 10,
+    lights = new Array,
+    colors = ['#eee'];
+
+canvas.setAttribute('width',w);
+canvas.setAttribute('height',h);
+
+function init() {
+  time = 0;
+  count = 0;
+
+  for(var i = 0; i < arc; i++) {
+    lights[i] = {
+      x: Math.ceil(Math.random() * w),
+      y: Math.ceil(Math.random() * h),
+      toX: Math.random() * 5 + 1,
+      toY: Math.random() * 5 + 1,
+      c: colors[Math.floor(Math.random()*colors.length)],
+      size: Math.random() * size
+    }
+  }
+}
+
+function bubble() {
+  ctx.clearRect(0,0,w,h);
+
+  for(var i = 0; i < arc; i++) {
+    var li = lights[i];
+
+    ctx.beginPath();
+    ctx.arc(li.x,li.y,li.size,0,Math.PI*2,false);
+    ctx.fillStyle = li.c;
+    ctx.fill();
+
+    li.x = li.x + li.toX * (time * 0.05);
+    li.y = li.y + li.toY * (time * 0.05);
+
+    if(li.x > w) { li.x = 0; }
+    if(li.y > h) { li.y = 0; }
+    if(li.x < 0) { li.x = w; }
+    if(li.y < 0) { li.y = h; }
+  }
+  if(time < speed) {
+    time++;
+  }
+  timerID = setTimeout(bubble,1000/rate);
+}
+init();
+bubble();
+
+</script>
+<style type="text/css">
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+	
+	*:before, *:after {
+	  content: '';
+	  display: block;
+	  position: absolute;
+	}
+
+	html, body {
+	  height: 100vh;
+	  background: #eee;
+	  overflow: hidden;
+	}
+
+	.landscape {
+	  position: relative;
+	  height: 650px;
+	  background: #234;
+	  overflow: hidden;
+	}
+
+	.moon {
+	  position: absolute;
+	  left: 55%;
+	  bottom: 100px;
+	  width: 350px;
+	  height: 350px;
+	  margin: 0 0 0 -50px;
+	  border-radius: 50%;
+	  background: #ccc;
+	}
+
+	.moon:after {
+	  top: 100px;
+	  left: 100px;
+	  width: 50px;
+	  height: 50px;
+	  border-radius: 50%;
+	  background: rgba(0, 0, 0, 0.1);
+	  box-shadow: 120px 80px 0 rgba(0, 0, 0, 0.1), 100px -60px 0 -20px rgba(0, 0, 0, 0.1), -70px 40px 0 -20px rgba(0, 0, 0, 0.1), -20px -50px 0 -15px rgba(0, 0, 0, 0.1), -20px 120px 0 -15px rgba(0, 0, 0, 0.1), 50px 50px 0 -15px rgba(0, 0, 0, 0.1);
+	}
+
+	.tree {
+	  position: absolute;
+	  left: 50%;
+	  bottom: 0;
+	  margin: 0 0 0 -320px;
+	}
+
+	.tree div {
+	  position: relative;
+	  float: left;
+	  display: block;
+	  width: 6px;
+	  height: 8px;
+	  margin: 0 30px -5px 0;
+	  background: #eee;
+	}
+
+	.tree div:before {
+	  bottom: 8px;
+	  border: solid transparent;
+	  content: " ";
+	  height: 0;
+	  width: 0;
+	  position: absolute;
+	  border-bottom-color: #eee;
+	  border-width: 12px;
+	  left: 50%;
+	  margin-left: -12px;
+	}
+
+	.tree div:after {
+	  bottom: 15px;
+	  border: solid transparent;
+	  content: " ";
+	  height: 0;
+	  width: 0;
+	  position: absolute;
+	  border-bottom-color: #eee;
+	  border-width: 10px;
+	  left: 50%;
+	  margin-left: -10px;
+	}
+
+	.tree div span:before {
+	  bottom: 22px;
+	  border: solid transparent;
+	  content: " ";
+	  height: 0;
+	  width: 0;
+	  position: absolute;
+	  border-bottom-color: #eee;
+	  border-width: 8px;
+	  left: 50%;
+	  margin-left: -8px;
+	}
+
+	.tree div span:after {
+	  bottom: 28px;
+	  border: solid transparent;
+	  content: " ";
+	  height: 0;
+	  width: 0;
+	  position: absolute;
+	  border-bottom-color: #eee;
+	  border-width: 6px;
+	  left: 50%;
+	  margin-left: -6px;
+	}
+
+	.hills {
+	  position: absolute;
+	  left: 50%;
+	  bottom: 0;
+	}
+
+	.hills div {
+	  overflow: hidden;
+	  border-radius: 8%;
+	  transform: rotate(45deg);
+	}
+
+	.hills div:nth-child(1),
+	.hills div:nth-child(2),
+	.hills div:nth-child(3) {
+	  position: absolute;
+	  bottom: -350px;
+	  width: 500px;
+	  height: 500px;
+	  background: #293d52;
+	}
+
+	.hills div:nth-child(1) {
+	  left: -750px;
+	}
+
+	.hills div:nth-child(2) {
+	  left: -250px;
+	}
+
+	.hills div:nth-child(3) {
+	  left: 250px;
+	}
+
+	.hills div:nth-child(4),
+	.hills div:nth-child(5) {
+	  position: absolute;
+	  bottom: -400px;
+	  left: -600px;
+	  width: 500px;
+	  height: 500px;
+	  background: #30475f;
+	}
+
+	.hills div:nth-child(4) {
+	  left: -500px;
+	}
+
+	.hills div:nth-child(5) {
+	  left: 0;
+	}
+
+	canvas {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  z-index: 1;
+	}
+
+	/* Codepen Preview Mode */
+	@media only screen and (max-height: 450px) {
+	  .landscape {
+	    margin-top: -270px;
+	  }
+	}
+</style>
+</head>
+<body>
+	<div class='landscape'>
+	  <div class='moon'></div>
+	  <div class='hills'>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  </div>
+	  <div class='tree'>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	    <div>
+	      <span></span>
+	    </div>
+	  </div>
+	</div>
+	<canvas id='snow'></canvas>
+</body>
+</html>
