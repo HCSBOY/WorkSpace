@@ -2,7 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>ChristmasCard</title>
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js">
+		//refresh when window size change
+		$(document).ready(function(){
+			var $window = $(window);
+			function checkWidth(){
+				var windowsize = $window.width(); //get window size
+				location.reload(); //refresh web
+			}
+
+			var resizeId;
+			$(window).resize(function(){
+				clearTimeout(resizeId);
+				resizeId = setTimeout(checkWidth, 500); //when stop pulling then do
+			})
+		})
+	</script>
 	<script type="text/javascript">
 		window.onload = function(){
 			//canvas init
@@ -86,7 +103,6 @@
 		html, body {
 	  		height: 100vh;
 	  		background: #eee;
-	  		//background: #041e49;
 	  		overflow: hidden;
 		}
 		
@@ -94,14 +110,6 @@
 			content:'';
 			display: block;
 			position: absolute;
-		}
-
-		canvas{
-			display: block;
-			position: absolute;
-	  		top: 0;
-	  		left: 0;
-	  		z-index: 1;
 		}
 
 		.landscape{
@@ -114,37 +122,114 @@
 		.moon {
 			position: absolute;
 			left: 55%;
-			bottom: 100px;
-			width: 400px;
-			height: 400px;
-			margin: 0 0 0 -10px;
-			border-radius: 50%;
+			bottom: 30vh;
+			width:30vw; 
+			height:30vw;
+			margin: 0 0 0 -50px;
+			border-radius: 99em;
 			background: #ccc;
 		}
 
 		.moon:after {
-			top: 100px;
-	    	left: 100px;
-	    	width: 70px;
-	  	 	height: 70px;
-	  		border-radius: 50%;
+			top: 20%;
+	    	left: 25%;
+	    	width: 7vw;
+	  	 	height: 7vw;
+	  		border-radius: 99em;
 	  		background: rgba(0, 0, 0, 0.1);
-			box-shadow: 150px 150px 0 rgba(0, 0, 0, 0.1), 
-						200px 00px 0 -10px rgba(0, 0, 0, 0.1), 
-						-70px 40px 0 -20px rgba(0, 0, 0, 0.1), 
-						-20px -50px 0 -15px rgba(0, 0, 0, 0.1), 
-						-20px 120px 0 -15px rgba(0, 0, 0, 0.1), 
-						50px 50px 0 -15px rgba(0, 0, 0, 0.1);
+			box-shadow: 8vw 11vw 0 1vw rgba(0, 0, 0, 0.1),
+						12vw -3vw 0 -1vw rgba(0, 0, 0, 0.1),
+						-1vw 10vw 0 -2vw rgba(0, 0, 0, 0.1),
+						-2vw -5vw 0 -2.5vw rgba(0, 0, 0, 0.1),
+						-4vw 5vw 0 -0.8vw rgba(0, 0, 0, 0.1); 			
 		}
 
+		.tree{
+			position:absolute;
+			left: 40%;
+			bottom: 0vh;
+			margin:0 0 0 -30vw;
+		}
 
+		.tree div{
+			position: relative;
+			float:left;
+			display: block;
+	  		width: 4vw;
+	  		height: 6vw;
+	  		margin: 0 10vw -1vw 0;
+	  		background: #5C4033;
+		}
+		
+		.tree div:before {
+		    bottom: 6vw;
+		    border: solid transparent;
+		    content: " ";
+		    height: 0;
+		    width: 0;
+		    position: absolute;
+		    border-bottom-color: #eee;
+		    border-width: 7vw;
+		    left: 50%;
+		    margin-left: -7vw;
+	    }
+		
+		.tree div:after {
+	  		bottom: 11vw;
+	  		border: solid transparent;
+	  		content: " ";
+	  		height: 0;
+	  		width: 0;
+	  		position: absolute;
+	  		border-bottom-color: #eee;
+	  		border-width: 6vw;
+	  		left: 50%;
+	  		margin-left: -6vw;
+		}
 
+		.tree div span:before{
+			bottom: 16vw;
+			border: solid transparent;
+			position: absolute;
+			border-bottom-color: #eee;
+			border-width: 4vw;
+			left:50%; 
+			margin-left: -4vw;
+		}
+
+		.tree div span:after {
+	  		bottom: 19vw;
+	  		border: solid transparent;
+	  		content: " ";
+	  		height: 0;
+	  		width: 0;
+	  		position: absolute;
+	  		border-bottom-color: #eee;
+	  		border-width: 3vw;
+	  		left: 50%;
+	  		margin-left: -3vw;
+		}
+
+		canvas{
+			display: block;
+			position: absolute;
+	  		top: 0;
+	  		left: 0;
+	  		z-index: 1;
+		}
 	</style>
 </head>
 <body>
 	<div class='landscape'>
 		<div class='moon'></div>
-	</div>
+		<div class='tree'>
+			<div><span></span></div>
+			<div><span></span></div>
+			<div><span></span></div>
+			<div><span></span></div>
+			<div><span></span></div>
+			<div><span></span></div>
+		</div>
 	<canvas id="canvas"></canvas>
 </body>
 </html>
