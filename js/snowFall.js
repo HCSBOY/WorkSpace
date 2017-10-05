@@ -1,6 +1,6 @@
 window.onload = function(){
 	//canvas init
-	var canvas = document.getElementById("canvas");
+	var canvas = document.getElementById("snow");
 	var ctx = canvas.getContext("2d");
 
 	//canvas dimension
