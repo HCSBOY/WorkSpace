@@ -122,3 +122,116 @@ canvas{
   	left: 0;
     z-index: 1;
 }
+
+.giftbox {
+	width: 20vw;
+	height: 20vw;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -7vw;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.giftbox:after {
+	content: 'Click me';
+	position: absolute;
+	color: #fff;
+	font-family: 'Verdana', serif;
+	bottom: 2vw;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 3vw;
+	z-index: 1000;
+	-webkit-transform: rotate(-20deg); /* google */
+	-ms-transform: rotate(-20deg); /*IE9*/
+	-moz-transform:rotate(-20deg); /*firefox*/
+	transform: rotate(-20deg);
+	-webkit-transform-origin: 0 0; /*google*/
+	-ms-transform-origin: 0 0; /*IE9*/
+	-moz-transform-origin: 0 0; /*firefox*/
+	transform-origin: 0 0;
+}
+
+.giftbox > div {
+	background: #34495e;
+	position: absolute;
+}
+ 
+.giftbox .cover {
+	top: 0;
+	left: -5%;
+	height: 5vw;
+	width: 22vw;
+	z-index: 2;
+	background-color: #FF0000;
+}
+
+.giftbox .box {
+	bottom: 0;
+	height: 80%;
+	left: 5%;
+	right: 5%;
+	z-index: 1;
+	background-color: #FF0000;
+}
+
+.giftbox > div:after,
+.giftbox > div:before {
+	content: '';
+	position: absolute;
+	top: 0;
+} 
+
+
+/* ribbon */
+.giftbox > div:before {
+	background: #FF7744;
+	width: 2vw;
+	left: 50%;
+	height: 100%;
+	-webkit-transform: translateX(-50%);  /*google*/ 
+	-ms-transform: translateX(-50%);	/*IE9*/
+	transform: translateX(-50%);		/*firefox*/
+}
+
+/* shadow */
+.giftbox .box:after { 
+	background: rgba(0,0,0,0.1);
+	left: 0;
+	height: 4vw;
+	width: 100%;
+}
+
+.giftbox .cover div{
+	position: absolute;
+	height: 6vw;
+	width: 6vw;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -3vw;
+}
+
+.giftbox .cover div:before,
+.giftbox .cover div:after{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	background: transparent;
+	border-radius: 30em;
+	box-shadow: inset 0 0 0 3vw #FF7744;
+}
+
+.giftbox .cover div:before {
+	-webkit-transform: translateX(-45%) skewY(40deg);
+	transform: translateX(-45%) skewY(40deg);
+}
+
+.giftbox .cover div:after {
+	-webkit-transform: translateX(45%) skewY(-40deg);
+	transform: translateX(45%) skewY(-40deg);
+}
+
