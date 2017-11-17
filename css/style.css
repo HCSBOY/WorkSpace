@@ -17,40 +17,40 @@ canvas{
 
 .F {
   background-image:
-  repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 1em,
-    darkseagreen 0,
-    darkseagreen 2em,
-    transparent 0,
-    transparent 3em,
-    beige 0,
-    beige 4em,
-    transparent 0,
-    transparent 5em,
-    lightcoral 0,
-    lightcoral 6em,
-    transparent 0,
-    transparent 7em,
-    beige 0,
-    beige 8em
-  ),
-  repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 1em,
-    snow 0,
-    snow 2em,
-    transparent 0,
-    transparent 3em,
-    wheat 0,
-    wheat 4em,
-    transparent 0,
-    transparent 5em,
-    wheat 0,
-    wheat 6em
-  );
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1em,
+      cornflowerblue 0,
+      cornflowerblue 2em,
+      transparent 0,
+      transparent 3em,
+      beige 0,
+      beige 4em,
+      transparent 0,
+      transparent 5em,
+      lightcoral 0,
+      lightcoral 6em,
+      transparent 0,
+      transparent 7em,
+      beige 0,
+      beige 8em
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 1em,
+      snow 0,
+      snow 2em,
+      transparent 0,
+      transparent 3em,
+      wheat 0,
+      wheat 4em,
+      transparent 0,
+      transparent 5em,
+      wheat 0,
+      wheat 6em
+    );
   background-repeat: no-repeat;
   background-blend-mode: multiply; /* not support in IE11 */
 }
@@ -133,7 +133,7 @@ div.tags{
   padding: 0 0;
   color: #222;
   font-family: 'Microsoft JhengHei',serif;
-  font: 5vw 'Sacramento', Cursive;
+  font: 1vw 'Sacramento', Cursive;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -197,68 +197,76 @@ div.tags{
 }
 
 .tag-my-text {
-  background: url(christmas-tree-with-star.svg) rgba(0,0,0,0) no-repeat;
+  background: url(christmas-tree-with-star.svg) no-repeat;
   /*background: black;*/ 
   width: 50vh;
   height: 65vh;
   margin: 0 auto;
   margin-top: 6vh;
   /*border-radius:  0em 0em 99em 99em;*/
-  color: #fff;
+  color: white;
   z-index: 1;
+  font-size: 8vh;
+  text-align: center;
 }
 
 .tag-my-side.is-back .tag-my-text {
-  background: url(small_logo.svg) no-repeat center;
+  background: url(logo-nippon.svg) no-repeat center;
   background-size: 50vh 50vh;
-  margin-top: 4vh;
-  color: #222;
+  color: black;
+  font-size: 5vh;
 }
 
 /* bottom */
 .rule-shape{
   width: 100%;
-  color: #fff;
-  font-size: 5vw;
+  color: white;
+  font-size: 1.5vw;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   align-self: flex-end;
+  margin-bottom: 4vh;
+  height: .5vh;
+  margin-right: .1vw; 
+  margin-left: .1vw;
 }
 
 .rule-shape:before,.rule-shape:after{
-  content: " ";
-  background: #fff;
-  height: 1px;
-  margin-bottom: .2vh;
+  content: "nippon express taiwan";
+  height: .5vh;
+  margin-bottom: 4vh;
   display: block;
   -webkit-box-flex: 2;
   flex-grow: 2;
-  margin-right: 10px; 
-  margin-left: 10px;
+  margin-right: .1vw; 
+  margin-left: .1vw;
+  background: white;
+  right: .1vw;
+  left: .1vw;
 }
 
 .rule-shape:before{
-  margin-right: 4vw;
+  margin-right: -2vw;
 }
 
 .rule-shape:after{
-  margin-left: 4vw;
+  margin-left: -2vw;
 }
 
 .rule-shape.sh-back{
-  color: black;
+  color: #e44f47;
 } 
 
 .rule-shape.sh-back:before,.rule-shape.sh-back:after{
-  background: black;
-}
+  background: #e44f47;
+}  
 
 .rule-shape.sh-back:before{
-  margin-right: 4vw;
+  margin-right: -2vw;
 }
 
 .rule-shape.sh-back:after{
-  margin-left: 4vw;
+  margin-left: -2vw;
 }
