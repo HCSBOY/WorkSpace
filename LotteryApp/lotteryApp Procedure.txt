@@ -1,0 +1,10 @@
+step1. 登入彩品 table colum(彩品編號、彩品名稱) System one
+
+step2. 員工入場時抽取入場編號並登入 table colum(員工編號、員工姓名、員工入場編號、員工照片) System two
+ 
+step3. 抽籤使用彩球機，不使用程式(較具有公信力及避嫌)
+
+step4. 畫面呈現方式 彩品照、員工照、可能要抽獎動畫          match System one & System two then records(System three) 
+       操作方式：1.先展示現在將要抽出獎項照片 display table colum(彩品編號、彩品名稱) System one 
+                 2.輸入彩球抽出的入場編號，出現該員訊息 display table colum(員工編號、員工姓名、員工入場編號、員工照片) System two
+                 3.對照彩品及員工編號，寫入紀錄 table colum(彩品編號、彩品名稱、員工編號、員工姓名、員工入場編號、員工照片) System three
