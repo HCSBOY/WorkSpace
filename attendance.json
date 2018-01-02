@@ -1,0 +1,21 @@
+{
+	"CompanyName":"臺灣日通",
+	"Location":"晶華酒店",
+	"members":[
+		{
+			"ID":1,
+			"empID":"17062",
+			"engName":"Hans",
+			"chtName":"侯忠劭",
+			"entNumber":1,
+			"imgAdress":"1.jpg"
+		},{
+			"ID":2,
+			"empID":"17063",
+			"engName":"Hanson",
+			"chtName":"劭忠侯",
+			"entNumber":15,
+			"imgAdress":"2.jpg"
+		}
+	]
+}
