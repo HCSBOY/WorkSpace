@@ -4,7 +4,7 @@
 	<title>LotteryApp</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">	
 </head>
-<body onload="init();">
+<body>
 	<div class="container">
       <!-- Static navbar -->
     	<nav class="navbar navbar-default" role="navigation">
@@ -31,7 +31,8 @@
 	    <div class="jumbotron">
 	    	<header></header>
 	    	<section></section>
-	    	<script>
+	    	<!--
+        <script>
     			var header = document.querySelector('header');
     			var section = document.querySelector('section');
     			
@@ -45,6 +46,7 @@
       				populateHeader(attendance);
       				showAttendance(attendance);
     			}
+
     			function populateHeader(jsonObj) {
       				var myH1 = document.createElement('h1');
       				myH1.textContent = jsonObj['CompanyName'];
@@ -53,28 +55,36 @@
       				myPara.textContent = 'Location: ' + jsonObj['Location'];
       				header.appendChild(myPara);
     			}
-    			function showHeroes(jsonObj) {
+
+    			function showAttendance(jsonObj) {
       				var members = jsonObj['members'];
-      				for(var i = 0; i < heroes.length; i++) {
+      				for(var i = 0; i < members.length; i++) {
         				var myArticle = document.createElement('article');
         				var myH2 = document.createElement('h2');
         				var myPara1 = document.createElement('p');
         				var myPara2 = document.createElement('p');
 				        var myPara3 = document.createElement('p');
-				        var myList = document.createElement('ul');
+				        var myPara4 = document.createElement('p');
+				        var myPhoto = document.createElement('img');
+
         				myH2.textContent = members[i].ID;
 				        myPara1.textContent = '英文姓名: ' + members[i].engName;
-	    				myPara2.textContent = '中文姓名: ' + members[i].chtName;
-	    				myPara3.textContent = '員工編號: ' + members[i].empID;
-        
+	    				  myPara2.textContent = '中文姓名: ' + members[i].chtName;
+	    				  myPara3.textContent = '員工編號: ' + members[i].empID;
+	    				  myPara4.textContent = '入場編號: ' + members[i].entNumber;
+	    				  myPhoto.src = "./img/" + members[i].imgAdress;
+        					    				
 				        myArticle.appendChild(myH2);
 				        myArticle.appendChild(myPara1);
 				        myArticle.appendChild(myPara2);
-				        myArticle.appendChild(myPara3);				      
+				        myArticle.appendChild(myPara3);
+				        myArticle.appendChild(myPara4);
+				        myArticle.appendChild(myPhoto);	
+
 				        section.appendChild(myArticle);
 				    }
     			}
-    		</script>
+    		</script> -->
 	    </div>
 	</div> <!-- /container -->
     <!-- Bootstrap core JavaScript
@@ -83,6 +93,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script type="text/javascript" src="./js/showText.js"></script>
+	<script type="text/javascript" src="./js/jData.js"></script>
 </body>
 </html>
