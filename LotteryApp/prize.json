@@ -1,0 +1,22 @@
+{
+	"CompanyName":"臺灣日通",
+	"DataSet":"忘年會獎品",
+	"Prizes":[
+		{
+			"p_ID":1,
+			"p_Name":"apple",
+			"p_sponsor":"TPE",
+			"p_Photo":""			
+		},{
+			"p_ID":2,
+			"p_Name":"sony",
+			"p_sponsor":"CKS",
+			"p_Photo":""
+		},{
+			"p_ID":3,
+			"p_Name":"oppo",
+			"p_sponsor":"TEPZ",
+			"p_Photo":""
+		}
+	]
+}

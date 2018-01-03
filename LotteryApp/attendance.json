@@ -14,8 +14,15 @@
 			"empID":"17063",
 			"engName":"Hanson",
 			"chtName":"劭忠侯",
-			"entNumber":"15",
+			"entNumber":"2",
 			"imgAdress":"2.jpg"
+		},{
+			"ID":3,
+			"empID":"17063",
+			"engName":"Denny",
+			"chtName":"Denny",
+			"entNumber":"3",
+			"imgAdress":"3.jpg"
 		}
 	]
 }
